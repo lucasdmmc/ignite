@@ -46,7 +46,8 @@ export function App() {
         <main>
           {/* to go through each array we need to use the map method */}
           {posts.map(post => {
-            return <Post 
+            return <Post
+              key={post.id}
               author={post.author}
               content={post.content}
               publishedAt={post.publishedAt}

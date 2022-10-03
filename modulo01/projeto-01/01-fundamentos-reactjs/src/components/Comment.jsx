@@ -3,11 +3,17 @@ import { useState } from "react"
 import { Avatar } from "./Avatar"
 import styles from "./Comment.module.css"
 
-export function Comment({content}) {
-  const [addLikes, setAddLikes] = useState(0)
+export function Comment({ content, onDeleteComment }) {
+  const [likeCount, setLikeCount] = useState(0)
 
-  function handleAddLike() {  
-    setAddLikes(addLikes +1)
+  function handleLikeComment() {
+    setLikeCount((prevState) => {
+      return prevState +1
+    })
+  }
+
+  function handleDeleteComment() {
+    onDeleteComment(content)
   }
 
   return (
@@ -23,7 +29,9 @@ export function Comment({content}) {
               <time title='02 de setembro às 20:27' dateTime='2020-09-02'>Cerca de 1h atŕas</time>
             </div>
 
-            <button title="Deletar comentário">
+            <button
+              onClick={handleDeleteComment}
+              title="Deletar comentário">
               <Trash size={24} />
             </button>
           </header>
@@ -31,9 +39,9 @@ export function Comment({content}) {
           <p>{content}</p>
         </div>
         <footer>
-          <button name="addLike" onClick={handleAddLike}>
+          <button name="addLike" onClick={handleLikeComment}>
             <ThumbsUp />
-            Aplaudir <span>{addLikes}</span>
+            Aplaudir <span>{likeCount}</span>
           </button>
         </footer>
       </div>
