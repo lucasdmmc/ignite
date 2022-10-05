@@ -25,7 +25,10 @@ export function Tasks({ task, index, statusTask, onChangeStatus, onRemoveTask }:
           <label htmlFor=""></label>
 
         </div>
-        <span className={`${task.finished ? styles.checkboxChecked : ""}`}>{task.description}</span>
+        <span 
+          className={`${task.finished ? styles.checkboxChecked : ""}`}>
+          {task.description}
+        </span>
       </div>
 
       <button onClick={() => onRemoveTask(index)} className={styles.trash} type="button">

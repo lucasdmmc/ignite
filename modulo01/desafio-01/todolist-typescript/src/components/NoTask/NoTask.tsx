@@ -26,7 +26,7 @@ export function NoTask({ tasks, onChangeStatus, onRemoveTask }: NoTaskProps) {
 
     {tasks.map((task, index) => (
       <Tasks
-        key={String(task)}
+        key={String(task.description)}
         onChangeStatus={onChangeStatus}
         onRemoveTask={onRemoveTask}
         statusTask={task.finished}

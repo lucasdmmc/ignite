@@ -1,8 +1,9 @@
-import { PlusCircle } from "phosphor-react"
 import { useState, useEffect } from "react"
 import styles from "./App.module.css"
+import { Button } from "./components/Button/Button"
 import { Header } from "./components/Header/Header"
 import { InfoTasks } from "./components/InfoTasks/InfoTasks"
+import { Input } from "./components/Input/Input"
 import { NoTask } from "./components/NoTask/NoTask"
 
 interface NewArrayProps {
@@ -14,7 +15,6 @@ export function App() {
   const [tasks, setTasks] = useState<Array<NewArrayProps>>([])
   const [newTasks, setNewTasks] = useState({} as NewArrayProps)
 
-  const [createdTaskCount, setCreatedTaskCount] = useState(0)
   const [finishedTaskCount, setFinishedTaskCount] = useState(0)
 
   function handleTaskChange(value: string) {
@@ -23,12 +23,11 @@ export function App() {
 
   
   function handleAddTask() {
-    if(createdTaskCount === 5) return alert("Você adicionou o máximo de tarefas possíveis!")
+    if(tasks.length == 5) return alert("Você adicionou o máximo de tarefas possíveis!")
     
-    if(!newTasks?.description || newTasks.description == "") return
+    if(newTasks.description == "") return
     setTasks([...tasks, newTasks])
     
-    setCreatedTaskCount(prevState => prevState +1)
     setNewTasks({description: "", finished: false})
   }
   
@@ -58,9 +57,6 @@ export function App() {
   useEffect(() => {
     const totalFinishedCount = tasks.filter(task => task.finished)
     setFinishedTaskCount(totalFinishedCount.length)
-
-    const totalCreatedCount = tasks.filter(task => task)
-    setCreatedTaskCount(totalCreatedCount.length)
   }, [tasks])
 
   return (
@@ -69,32 +65,25 @@ export function App() {
 
       <div className={styles.containerInputAndButton}>
 
-        <input
-          className={styles.input} 
+        <Input 
           value={newTasks.description}
-          onChange={(e) => handleTaskChange(e.target.value)}
-          placeholder="Adicione uma nova tarefa"
-          type="text" 
+          setOnChange={handleTaskChange}
         />
 
-        <button 
-          className={styles.button}
+        <Button 
           onClick={handleAddTask}
-        >
-          <strong>Criar</strong>
-          <PlusCircle />
-        </button>
+        />
       </div>
 
       <InfoTasks 
-        totalCreatedTasks={createdTaskCount}
+        totalCreatedTasks={tasks.length}
         totalFinsihedTasks={finishedTaskCount}
 
       />
 
       <main>
         <NoTask
-          key={String(newTasks)}
+          key={String(newTasks.description)}
           tasks={tasks}
           onChangeStatus={changeStatus}
           onRemoveTask={removeTask}
