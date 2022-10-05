@@ -1,0 +1,25 @@
+.header {
+  padding: 7.2rem 0 8rem 0;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+
+  text-transform: lowercase;
+}
+
+.header h1 {
+  color: #4EA8DE;
+  font-weight: 900;
+  font-size: 4.0rem;
+  line-height: 4.8rem;
+}
+
+.header span {
+  color: #5E60CE;
+  font-weight: 900;
+  font-size: 4.0rem;
+  line-height: 4.8rem;
+}
