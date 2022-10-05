@@ -3,30 +3,25 @@ import styles from "./Tasks.module.css"
 
 export function Tasks({ 
   task, 
-  onCheckboxChecked, 
   onRemoveTask, 
   onChangeStatus,
+  index,
   statusTask,
-  index
   }) {
-
-  function handleCheckboxChecked() {
-    onCheckboxChecked()
-  }
-
-  function handleRemoveTask() {
-    onRemoveTask()
-  }
-
   function handleChangeStatus() {
     onChangeStatus()
   }
-
+  
+  function handleRemoveTask() {
+    onRemoveTask()
+  }
+  
   return(
+    
     <div className={styles.container}>
       <div className={styles.checkboxAndTask}>
         <div className={styles.checkbox}>
-          <input onClick={() => handleCheckboxChecked(statusTask, index)} type="checkbox"/>
+          <input onClick={()=> handleChangeStatus(statusTask, index)} type="checkbox"/>
           <label htmlFor=""></label>
 
         </div>

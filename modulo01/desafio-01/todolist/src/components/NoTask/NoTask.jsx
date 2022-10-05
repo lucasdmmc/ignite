@@ -3,22 +3,18 @@ import styles from "./NoTask.module.css"
 
 export function NoTask({ 
   tasks, 
-  onCheckboxChecked, 
-  onRemoveTask, 
-  onChangeStatus,
+  onChangeStatus, 
+  onRemoveTask,
  }) {
-
-  function checkboxChecked() {
-    onCheckboxChecked()
+  
+  function changeStatus() {
+    onChangeStatus()
   }
 
   function removeTask() {
     onRemoveTask()
   }
 
-  function changeStatus(){
-    onChangeStatus()
-  }  
   return (
     <>
     {tasks.length === 0 && <div className={styles.noTask}>
@@ -31,12 +27,11 @@ export function NoTask({
     {tasks.map((task, index) => (
       <Tasks
         key={String(task)}
-        onCheckboxChecked={checkboxChecked}
-        onRemoveTask={removeTask}
         onChangeStatus={changeStatus}
+        onRemoveTask={removeTask}
         task={task}
+        statusTask={task.finished}
         index={index}
-        statusTask={task}
       />
     ))}
     </>
