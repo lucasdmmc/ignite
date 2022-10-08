@@ -1,9 +1,10 @@
 import { differenceInSeconds } from 'date-fns'
 import { useEffect, useContext } from 'react'
-import { CycleContext } from '../..'
+import { CycleContext } from '../../../../contexts/CycleContext'
 import { CountdownContainer, Separator } from './styles'
 
 export function Countdown() {
+  const { cycles } = useContent(CycleContext)
   const {
     activeCycle,
     activeCycleId,
@@ -64,4 +65,7 @@ export function Countdown() {
       <span>{seconds[1]}</span>
     </CountdownContainer>
   )
+}
+function useContent(CycleContext: Context<CyclesContextType>): { cycles: any } {
+  throw new Error('Function not implemented.')
 }
