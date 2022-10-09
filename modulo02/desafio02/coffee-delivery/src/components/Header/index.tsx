@@ -13,9 +13,7 @@ export function Header() {
         <ul>
           <li>
             <img src={localization}/>
-            <a href="#">
               Uibaí, BA
-            </a>
           </li>
         </ul>
 

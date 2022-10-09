@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
   ul, a {
     list-style: none;
     text-decoration: none;
+    color: inherit
   }
 
   :focus {
@@ -22,5 +23,11 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-size: 1.6rem;
     background: ${props => props.theme['background']};
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+  }
+
+  h1 {
+    font-family: 'Baloo 2', sans-serif;
   }
 `

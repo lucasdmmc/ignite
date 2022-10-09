@@ -25,6 +25,12 @@ export const LocalizationAndCart = styled.div`
     padding: 1rem;
   }
 
+  span {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: ${props => props.theme['purple-700']}
+  }
+
   button {
     background: none;
     border: none;
@@ -32,5 +38,7 @@ export const LocalizationAndCart = styled.div`
     background: ${props => props.theme['yellow-100']};
     padding: 1rem;
     border-radius: 6px;
+
+    cursor: pointer;
   }
 `
