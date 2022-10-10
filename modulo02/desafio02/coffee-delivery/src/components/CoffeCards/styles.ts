@@ -1,15 +1,6 @@
 import styled from "styled-components";
 
 export const CoffeeCardsContainer = styled.div`
-  margin-top: 10.8rem;
-
-  strong {
-    font-weight: 800;
-    font-size: 3.2rem;
-    line-height: 130%;
-    color: ${props => props.theme['gray-700']};
-    font-family: 'Baloo 2', sans-serif;
-  }
 
 `
 

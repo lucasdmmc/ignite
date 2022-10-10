@@ -1,10 +1,11 @@
 import { Header } from "../../components/Header";
 import { InfoCoffeeDelivery } from "../../components/InfoCoffeeDelivery";
-import { MainContainer, SectionContainer, Title } from "./styles";
+import { MainContainer, SectionContainer, Title, Coffees, CardsContainer } from "./styles";
 import coffeeMain from "../../assets/coffeeMain.png"
 import { CoffeCards } from "../../components/CoffeCards";
 
-
+import traditionalCoffee from "../../assets/coffecards/expresso-tradicional.svg"
+import americanTraditional from "../../assets/coffecards/expresso-americano.svg"
 export function Home() {
   return (
     <>
@@ -24,7 +25,26 @@ export function Home() {
         <img src={coffeeMain} alt="" />
       </SectionContainer>
 
-      <CoffeCards />
+      <Coffees>
+        <strong>Nossos cafés</strong> 
+
+        <CardsContainer>
+          <CoffeCards 
+            coffeeType="Tradicional"
+            src={traditionalCoffee}
+            title="Expresso Tradicional"
+            description="O tradicional café feito com água quente e grãos moídos"  
+          />
+          <CoffeCards
+            coffeeType="Tradicional"
+            src={americanTraditional}
+            title="Expresso Americano"
+            description="Expresso diluído, menos intenso que o tradicional"
+          />
+          
+        </CardsContainer>  
+
+      </Coffees>
     </MainContainer>
     </>
   )

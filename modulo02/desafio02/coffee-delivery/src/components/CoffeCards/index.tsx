@@ -1,22 +1,29 @@
 import { Cards, ChooseHowMuchCoffes, CoffeeCardsContainer, MoreOrLess, Cart } from "./styles";
-import traditionalCoffee from "../../assets/coffecards/expresso-tradicional.svg"
 import whiteCart from "../../assets/white-cart.svg"
 import {Plus, Minus} from "phosphor-react"
 
-export function CoffeCards() {
+interface CoffeeCardsProps {
+  coffeeType: string;
+  title: string;
+  description: string
+  src: string;
+}
+
+export function CoffeCards({ coffeeType, title, description, src }: CoffeeCardsProps) {
   return(
     <CoffeeCardsContainer>
-      <strong>Nossos cafés</strong>
 
       <Cards>
         <header>
-          <img src={traditionalCoffee} alt="" />
+          <img src={src} alt="" />
         </header>
 
         <main>
-          <span>Tradicional</span>
-          <strong>Expresso Tradicional</strong>
-          <p>O tradicional café feito com água quente e grãos moídos</p>
+          <span >
+            {coffeeType}
+          </span>
+          <strong>{title}</strong>
+          <p>{description}</p>
         </main>
 
         <footer>
