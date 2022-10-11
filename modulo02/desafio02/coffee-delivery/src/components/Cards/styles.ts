@@ -3,8 +3,9 @@ import styled from 'styled-components'
 export const CoffeeCardsContainer = styled.div``
 
 export const CoffeeCards = styled.div`
-  display: flex;
+  display: grid;
   align-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 3.2rem;
 `
 

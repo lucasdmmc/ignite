@@ -4,8 +4,9 @@ import { Plus, Minus } from 'phosphor-react'
 
 interface CoffeeCardProps {
   id: number
-  coffee: string
-  cold?: boolean
+  coffee?: string
+  otherTaste?: string
+  taste?: string
   src: string
   title: string
   description: string
@@ -14,7 +15,8 @@ interface CoffeeCardProps {
 export function Card({
   id,
   coffee,
-  cold,
+  otherTaste,
+  taste,
   src,
   title,
   description,
@@ -28,7 +30,8 @@ export function Card({
       <main>
         <div className="typesCoffee">
           <span>{coffee}</span>
-          {cold && <span>Gelado</span>}
+          {otherTaste && <span>{otherTaste}</span>}
+          {taste && <span>{taste}</span>}
         </div>
         <strong>{title}</strong>
         <p>{description}</p>

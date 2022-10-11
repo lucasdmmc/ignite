@@ -88,6 +88,10 @@ export const ChooseHowMuchCoffes = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
+
+  svg {
+    color: ${(props) => props.theme['purple-700']};
+  }
 `
 
 export const MoreOrLess = styled.div`
