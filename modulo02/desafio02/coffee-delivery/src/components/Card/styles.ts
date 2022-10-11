@@ -2,12 +2,17 @@ import styled from 'styled-components'
 
 export const CoffeeCard = styled.div`
   width: 256px;
-  margin-top: 5.4rem;
   background: ${(props) => props.theme['gray-300']};
   border-radius: 6px 36px;
 
   text-align: center;
-  padding: 2rem 1.6rem;
+  padding: 2rem;
+
+  transition: transform 400ms;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   header {
     img {
@@ -19,14 +24,13 @@ export const CoffeeCard = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 1.6rem;
-    margin-bottom: 3.3rem;
+    width: 100%;
 
     div {
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      margin-top: 0.8rem;
+      padding: 1.2rem 0 1.6rem 0;
     }
 
     span {
@@ -35,7 +39,7 @@ export const CoffeeCard = styled.div`
       font-weight: bold;
       border-radius: 100px;
       text-transform: uppercase;
-      padding: 0.4rem 0.8rem;
+      padding: 0.5rem 0.8rem;
       color: ${(props) => props.theme['yellow-700']};
       background: ${(props) => props.theme['yellow-100']};
     }
@@ -52,11 +56,12 @@ export const CoffeeCard = styled.div`
       text-align: center;
       line-height: 130%;
       color: ${(props) => props.theme['gray-500']};
-      margin-top: -1.2rem;
+      padding: 0.8rem 0 3.3rem 0;
     }
   }
 
   footer {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

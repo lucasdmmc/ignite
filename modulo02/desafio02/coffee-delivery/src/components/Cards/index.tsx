@@ -12,7 +12,7 @@ import coffeeCard11 from '../../assets/coffecards/coffeeCard11.svg'
 import coffeeCard12 from '../../assets/coffecards/coffeeCard12.svg'
 import coffeeCard13 from '../../assets/coffecards/coffeeCard13.svg'
 import coffeeCard14 from '../../assets/coffecards/coffeeCard14.svg'
-import { CoffeeCards, CoffeeCardsContainer } from './styles'
+import { CoffeeCards } from './styles'
 import { Card } from '../Card'
 
 export function Cards() {
@@ -52,7 +52,8 @@ export function Cards() {
       otherTaste: 'Com leite',
       src: coffeeCard5,
       title: 'Café com Leite',
-      description: 'Meio a meio de expresso tradicional com leite vaporizado',
+      description:
+        'Meio a meio de expresso tradicional com leite vaporizado, para degustar do melhor jeito',
     },
     {
       id: 6,
@@ -87,7 +88,8 @@ export function Cards() {
       otherTaste: 'Com leite',
       src: coffeeCard9,
       title: 'Mocaccino',
-      description: 'Café expresso com calda de chocolate, pouco leite e espuma',
+      description:
+        'O Café expresso contém calda de chocolate, pouco leite e espuma',
     },
     {
       id: 10,
@@ -95,7 +97,8 @@ export function Cards() {
       otherTaste: 'Com leite',
       src: coffeeCard10,
       title: 'Chocolate Quente',
-      description: 'Bebida preparada com café expresso e cubos de gelo',
+      description:
+        'Chocolate quente preparado com café expresso e alguns cubos de gelo',
     },
     {
       id: 11,
@@ -112,7 +115,8 @@ export function Cards() {
       coffee: 'Espicial',
       src: coffeeCard12,
       title: 'Havaiano',
-      description: 'Bebida adocicada preparada com café e leite de coco',
+      description:
+        'A bebida é adocicada preparada com café, leite de coco e um toque especial',
     },
     {
       id: 13,
@@ -123,28 +127,26 @@ export function Cards() {
     },
     {
       id: 14,
-      otherTaste: 'Alcoólico',
+      coffee: 'Alcoólico',
       src: coffeeCard14,
       title: 'Irlandês',
       description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     },
   ]
   return (
-    <CoffeeCardsContainer>
-      <CoffeeCards>
-        {cards.map((card) => (
-          <Card
-            key={card.id}
-            id={card.id}
-            otherTaste={card.otherTaste}
-            taste={card.taste}
-            coffee={card.coffee}
-            src={card.src}
-            title={card.title}
-            description={card.description}
-          />
-        ))}
-      </CoffeeCards>
-    </CoffeeCardsContainer>
+    <CoffeeCards>
+      {cards.map((card) => (
+        <Card
+          key={card.id}
+          id={card.id}
+          otherTaste={card.otherTaste}
+          taste={card.taste}
+          coffee={card.coffee}
+          src={card.src}
+          title={card.title}
+          description={card.description}
+        />
+      ))}
+    </CoffeeCards>
   )
 }

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
   * { 
@@ -22,9 +22,10 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-size: 1.6rem;
-    background: ${props => props.theme['background']};
+    background: ${(props) => props.theme.background};
     font-family: "Roboto", sans-serif;
     width: 100%;
+    -webkit-font-smothing: antialiased;
   }
 
   h1 {
