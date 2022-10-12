@@ -1,6 +1,6 @@
 export const defaultTheme = {
-  'white': '#ffffff',
-  'background' : '#FAFAFA',
+  white: '#ffffff',
+  background: '#FAFAFA',
 
   'yellow-100': '#F1E9C9',
   'yellow-400': '#DBAC2C',
@@ -11,7 +11,7 @@ export const defaultTheme = {
   'purple-700': '#4B2995',
 
   'gray-100': '#F3F2F2',
-  'gray-200': '#EDEDED',
+  'gray-200': '#EEEDED',
   'gray-300': '#E6E5E5',
   'gray-400': '#D7D5D5',
   'gray-500': '#8D8686',
