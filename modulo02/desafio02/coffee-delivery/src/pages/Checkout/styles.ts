@@ -19,21 +19,20 @@ export const StrongContainer = styled.div`
 export const CheckoutContainer = styled.div`
   width: 1120px;
   margin: 0 auto;
-  padding-top: 1.5rem;
-  border-radius: 6px;
-  /* display: flex;
-  align-items: center;
+  display: flex;
   justify-content: center;
-  gap: 3.2rem; */
+  gap: 3.2rem;
+
+  margin-top: 1.5rem;
 `
+
+export const AdressAndPayment = styled.div``
 
 export const RequestContainer = styled.div`
   width: 640px;
   background: ${(props) => props.theme['gray-100']};
-  margin-top: 1.5rem;
 
   padding: 4rem;
-
   .adress {
     display: flex;
     align-items: flex-start;
@@ -110,7 +109,10 @@ export const RequestContainer = styled.div`
 export const PaymentContainer = styled.div`
   width: 640px;
   margin-top: 1.2rem;
+  margin-bottom: 4rem;
   padding: 4rem;
+
+  border-radius: 6px;
 
   background: ${(props) => props.theme['gray-100']};
 
@@ -126,13 +128,56 @@ export const PaymentContainer = styled.div`
     .information p {
       color: ${(props) => props.theme['gray-600']};
       font-size: 1.6rem;
-      margin-top: 0.2rem;
     }
   }
 `
 
-// export const SelectedContainer = styled.div`
-//   width: 448px;
-//   background: ${(props) => props.theme['gray-300']};
-//   padding-top: 1.5rem;
-// `
+export const SelectedContainer = styled.div`
+  width: 100%;
+  height: 498px;
+  background: ${(props) => props.theme['gray-100']};
+  padding: 4rem;
+  margin-top: -0.07rem;
+
+  .pricesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    .totalItens,
+    .entrega {
+      display: flex;
+      justify-content: space-between;
+      color: ${(props) => props.theme['gray-600']};
+
+      span:first-child {
+        font-size: 1.4rem;
+      }
+    }
+
+    .totalPrice {
+      display: flex;
+      justify-content: space-between;
+      font-size: 2rem;
+      color: ${(props) => props.theme['gray-700']};
+    }
+  }
+
+  .confirm {
+    border: none;
+    background: none;
+    background: ${(props) => props.theme['yellow-400']};
+    color: ${(props) => props.theme.white};
+    border-radius: 6px;
+    width: 100%;
+    height: 4.6rem;
+    margin-top: 2.4rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+
+    :hover {
+      background: ${(props) => props.theme['yellow-700']};
+    }
+  }
+`

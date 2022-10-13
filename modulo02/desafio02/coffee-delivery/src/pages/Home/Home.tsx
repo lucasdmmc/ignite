@@ -1,7 +1,6 @@
 import { Header } from '../../components/Header'
 import { InfoCoffeeDelivery } from '../../components/InfoCoffeeDelivery'
 import coffeeMain from '../../assets/coffeeMain.png'
-import { Cards } from '../../components/Cards'
 import {
   MainContainer,
   SectionContainer,
@@ -9,6 +8,7 @@ import {
   Coffees,
   CardsContainer,
 } from './styles'
+import { AllCoffeeCards } from '../../components/AllCoffeeCards'
 
 export function Home() {
   return (
@@ -35,7 +35,7 @@ export function Home() {
           <strong>Nossos cafés</strong>
 
           <CardsContainer>
-            <Cards />
+            <AllCoffeeCards />
           </CardsContainer>
         </Coffees>
       </MainContainer>

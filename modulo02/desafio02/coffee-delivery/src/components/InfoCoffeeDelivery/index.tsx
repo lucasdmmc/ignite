@@ -1,15 +1,16 @@
-import { 
+import {
   InfoCoffeeDeliveryContainer,
-  InfoOne, 
-  InfoTwo, 
+  InfoOne,
+  InfoTwo,
   InfoThree,
-  InfoFour, 
-  InfoOneContainer, 
-  InfoTwoContainer } from "./styles";
-import whiteCart from "../../assets/white-cart.svg"
-import box from "../../assets/box.svg"
-import time from "../../assets/time.svg"
-import coffee from "../../assets/coffee.svg"
+  InfoFour,
+  InfoOneContainer,
+  InfoTwoContainer,
+} from './styles'
+import whiteCart from '../../assets/white-cart.svg'
+import box from '../../assets/box.svg'
+import time from '../../assets/time.svg'
+import coffee from '../../assets/coffee.svg'
 
 export function InfoCoffeeDelivery() {
   return (

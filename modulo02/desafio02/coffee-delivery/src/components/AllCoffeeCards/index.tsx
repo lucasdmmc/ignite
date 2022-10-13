@@ -15,7 +15,7 @@ import coffeeCard14 from '../../assets/coffecards/coffeeCard14.svg'
 import { CoffeeCards } from './styles'
 import { Card } from '../Card'
 
-export function Cards() {
+export function AllCoffeeCards() {
   const cards = [
     {
       id: 1,
