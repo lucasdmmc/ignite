@@ -11,6 +11,7 @@ import {
 } from './styles'
 import { AllButtons } from '../../components/AllButtons'
 import { PaymentCard } from '../../components/PaymentCard'
+import { Link } from 'react-router-dom'
 
 export function Checkout() {
   return (
@@ -82,8 +83,9 @@ export function Checkout() {
               <strong>R$ 33,20</strong>
             </div>
           </div>
-
-          <button className="confirm">Confirmar pedido</button>
+          <Link to="/success">
+            <button className="confirm">Confirmar pedido</button>
+          </Link>
         </SelectedContainer>
       </CheckoutContainer>
     </>
