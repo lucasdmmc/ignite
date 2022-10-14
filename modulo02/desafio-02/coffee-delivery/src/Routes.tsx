@@ -1,12 +1,15 @@
 import {Route, Routes} from 'react-router-dom'
-import { CompleteOrderPage } from './Pages/CompleteOrder'
-import { HomePage } from './Pages/Home'
+import { DefaultLayout } from './layout/DefaultLayout'
+import { CompleteOrderPage } from './pages/CompleteOrder'
+import { HomePage } from './pages/Home'
 
 export function Router() {
   return (
     <Routes>
-      <Route path='/' element={<HomePage />} />
-      <Route path='/completeOrder' element={<CompleteOrderPage />} />
+      <Route path='/' element={<DefaultLayout />}>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/completeOrder' element={<CompleteOrderPage />} />
+      </Route>
     </Routes>
   )
 }
