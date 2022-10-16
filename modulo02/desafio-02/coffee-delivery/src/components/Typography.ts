@@ -17,13 +17,13 @@ export const TitleText = styled.h1<TitleTextProps>`
   font-size: ${({ theme, size }) => theme.textSizes[`title-title-${size ?? "m"}`]};
   font-family: ${({ theme }) => theme.fonts.title};
   font-weight: ${({ weight }) => weight ?? 800};
-  line-height: 130%
+  line-height: 130%;
 `
 
 export const RegularText = styled.p<RegularTextProps>`
   color: ${({ theme, color }) => theme.colors[`base-${color?? "title"}`]};
-  font-size: ${({ theme, size }) => theme.textSizes[`text-relugar-${size ?? "m"}`]};
-  font-family: ${({ theme }) => theme.fonts.title};
+  font-size: ${({ theme, size }) => theme.textSizes[`text-regular-${size ?? "m"}`]};
+  font-family: ${({ theme }) => theme.fonts.regular};
   font-weight: ${({ weight }) => weight ?? 400};
   line-height: 130%
 `

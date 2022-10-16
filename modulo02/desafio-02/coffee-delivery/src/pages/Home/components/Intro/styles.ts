@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import introBackgroundImg from "../../../../assets/intro-background.png"
-
+import { rgba } from "polished"
+import { TitleText } from "../../../../components/Typography"
 export const IntroContainer = styled.section`
   width: 100%;
   height: 34rem;
@@ -12,6 +13,10 @@ export const IntroContainer = styled.section`
         ${theme.colors["base-background"]} 100%
       )`};
   background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export const IntroContent = styled.div`
@@ -21,6 +26,6 @@ export const IntroContent = styled.div`
   gap: 3.5rem;
 `
 
-function rgba(arg0: string, arg1: number) {
-  throw new Error("Function not implemented.")
-}
+export const IntroText = styled(TitleText)`
+  margin-bottom: 1rem;
+`
