@@ -14,6 +14,11 @@ export const CoffeeCartCardContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1.25rem;
+
+    img {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
   }
 
   > p {
