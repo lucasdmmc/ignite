@@ -23,5 +23,7 @@ export const HeaderContainer = styled.header`
     align-items: center;
     flex-direction: column;
     gap: 2.25rem;
+
+    margin-top: -46px;
   }
 `
