@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import { useContext, useEffect, useState } from 'react'
-import { CreatedPost } from '../../components/CreatedPost'
 import { Posts } from '../../components/Posts/Posts'
 import { Profile } from '../../components/Profile'
 import { ProfileContext } from '../../context/ProfileContext'
@@ -17,7 +16,7 @@ import { BlogContainer, Publications, PublicationsContainer } from './styles'
 
 export function Blog() {
 
-  const { issues } = useContext(ProfileContext)
+  const { totalCount } = useContext(ProfileContext)
 
   return (
     <BlogContainer>
@@ -26,7 +25,7 @@ export function Blog() {
       <PublicationsContainer>
         <Publications>
           <strong>Publicações</strong>
-          <span>{issues.total_count} publicações</span>
+          <span>{totalCount} publicações</span>
         </Publications>
         <input type="text" placeholder="Buscar conteúdo" />
       </PublicationsContainer>

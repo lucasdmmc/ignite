@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { NavLink } from "react-router-dom"
 import { ProfileContext } from "../../context/ProfileContext"
-import { CreatedPost } from "../CreatedPost"
+import { ResearchedPost } from "../ResearchedPost"
 import { PostsContainer } from "./styles"
 
 export function Posts() {
@@ -20,15 +20,18 @@ export function Posts() {
   //   }
   // ]
   const { issues } = useContext(ProfileContext)
+  console.log(issues)
   return (
     <PostsContainer>
-        <CreatedPost
-          key={String(issues.id)}
-          id={issues.id}
-          title={issues.title}
-          body={issues.body}
-          createdAt={issues.createdAt}
+      {issues.map(issue => (
+        <ResearchedPost
+        key={String(issue.id)}
+        id={issue.id}
+        title={issue.title}
+        body={issue.body}
+        created_at={issue.created_at}
         />
+      ))}
     </PostsContainer>
   )
 

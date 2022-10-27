@@ -1,11 +1,13 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { api, apiIssues } from "../lib/axios";
+import { api } from "../lib/axios";
 
 interface Blog {
   id: number
+  number: number
   body: string
   title: string
-  total_count: number
+  created_at: string
+
 }
 
 interface Profile {
@@ -18,7 +20,8 @@ interface Profile {
 
 interface ProfileContextProps {
   profiles: Profile
-  issues: Blog
+  issues: Blog[]
+  totalCount: number
 }
 
 interface ProfileProviderContext {
@@ -31,8 +34,8 @@ export const ProfileContext = createContext({} as ProfileContextProps)
 
 export function ProfileProvider({ children }: ProfileProviderContext) {
   const [profiles, setProfiles] = useState({} as Profile )
-  const [issues, setIssues] = useState({} as Blog)
-  console.log(issues)
+  const [issues, setIssues] = useState<Blog[]>([])
+  const [totalCount, setTotalCount] = useState(0)
   
   async function loadProfile() {
     const response = await api.get(`/users/lucasdmmc`)
@@ -42,8 +45,19 @@ export function ProfileProvider({ children }: ProfileProviderContext) {
   async function loadIssues() {
      const response = await fetch(endpoint)
      const data = await response.json()
-    
-     setIssues(data)
+      console.log(data)
+
+      const normalizeIssues = data.items.map(((item: Blog) => {
+        return {
+          id: item.number,
+          body: item.body,
+          title: item.title,
+          created_at: item.created_at
+        }
+      }))
+     setIssues(normalizeIssues)
+     setTotalCount(data.total_count)
+    //  console.log(normalizeIssues)
    }
 
   useEffect(() => {
@@ -51,7 +65,7 @@ export function ProfileProvider({ children }: ProfileProviderContext) {
     loadIssues()
   }, [])
   return (
-    <ProfileContext.Provider value={{ profiles, issues }}>
+    <ProfileContext.Provider value={{ profiles, issues, totalCount }}>
 
       {children}
     </ProfileContext.Provider>

@@ -4,9 +4,20 @@ import {
   faArrowUpRightFromSquare, faCalendarDay, faChevronLeft, faComment,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useEffect } from 'react'
 export function Post() {
+  const { id } = useParams()
+
+  useEffect(() => {
+    async function loadIssue() {
+      const url = `https://api.github.com/repos/lucasdmmc/IGNITE/issues/${id}`
+      const response = await fetch(url)
+      
+    }
+    loadIssue()
+  },[])
   return (
     <PostContainer>
       <PostProfile>

@@ -5,21 +5,21 @@ import { NavLink } from 'react-router-dom'
 import { ProfileContext } from '../../context/ProfileContext'
 import { CreatedPostContainer, PostHeader, PostPublication } from './styles'
 
-interface CreatedPostProps {
+interface ResearchedPostProps {
   id: number
   title: string
   body: string
-  createdAt: string
+  created_at: string
 }
 
-export function CreatedPost({id, title, body, createdAt}: CreatedPostProps) {
+export function ResearchedPost({id, title, body, created_at}: ResearchedPostProps) {
   return (
     <>
-      <NavLink to="/post">
+      <NavLink to={`/issue/${id}`}>
         <PostPublication key={id}>
           <PostHeader>
             <strong>{title}</strong>
-            <span>{createdAt}</span>
+            <span>{created_at}</span>
           </PostHeader>
 
           <p>{body}</p>
