@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const defaultTheme = {
   blue: '#3294F8',
 

@@ -1,7 +1,7 @@
+/* eslint-disable prettier/prettier */
 import { LinksMenu, PostContainer, PostProfile } from './styles'
 import {
-  faArrowUpRightFromSquare,
-  faChevronLeft,
+  faArrowUpRightFromSquare, faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export function Post() {

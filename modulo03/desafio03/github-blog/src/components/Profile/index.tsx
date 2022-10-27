@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faArrowUpRightFromSquare,

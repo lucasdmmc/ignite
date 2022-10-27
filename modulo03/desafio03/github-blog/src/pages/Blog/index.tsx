@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Posts } from '../../components/Posts'
 import { Profile } from '../../components/Profile'
 import { BlogContainer, Publications, PublicationsContainer } from './styles'
