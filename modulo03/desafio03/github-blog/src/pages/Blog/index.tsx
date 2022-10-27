@@ -1,9 +1,24 @@
 /* eslint-disable prettier/prettier */
+import { useContext, useEffect, useState } from 'react'
 import { CreatedPost } from '../../components/CreatedPost'
+import { Posts } from '../../components/Posts/Posts'
 import { Profile } from '../../components/Profile'
+import { ProfileContext } from '../../context/ProfileContext'
+import { Post } from '../Post'
 import { BlogContainer, Publications, PublicationsContainer } from './styles'
 
+
+// q=${texto}%20repo:${username}/${repo}
+
+// https://github.com/rocketseat-education/reactjs-github-blog-challenge/issues/1
+
+// https://api.github.com/search/issues?q=Boas%20práticas%20repo:rocketseat-education/reactjs-github-blog-challenge
+
+
 export function Blog() {
+
+  const { issues } = useContext(ProfileContext)
+
   return (
     <BlogContainer>
       <Profile />
@@ -11,12 +26,12 @@ export function Blog() {
       <PublicationsContainer>
         <Publications>
           <strong>Publicações</strong>
-          <span>6 publicações</span>
+          <span>{issues.total_count} publicações</span>
         </Publications>
         <input type="text" placeholder="Buscar conteúdo" />
       </PublicationsContainer>
 
-      <CreatedPost id={0} title={''} description={''} createdAt={''} />
+      <Posts />
     </BlogContainer>
   )
 }

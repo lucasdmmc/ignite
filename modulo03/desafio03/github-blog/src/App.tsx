@@ -4,14 +4,17 @@ import { GlobalStyle } from './styles/global'
 import { defaultTheme } from './styles/themes/default'
 import { Router } from './Router'
 import { BrowserRouter } from 'react-router-dom'
+import { ProfileProvider } from './context/ProfileContext'
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
-        <Router />
-        <GlobalStyle />
-      </BrowserRouter>
+      <ProfileProvider>
+        <BrowserRouter>
+          <Router />
+          <GlobalStyle />
+        </BrowserRouter>
+      </ProfileProvider>
     </ThemeProvider>
   )
 }

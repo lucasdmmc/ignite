@@ -14,30 +14,32 @@ import {
   ProfileWrapper,
 } from './styles'
 import { NavLink } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
+import { api } from '../../lib/axios'
+import { ProfileContext } from '../../context/ProfileContext'
 
 export function Profile() {
+
+  const { profiles } = useContext(ProfileContext)
+
   return (
     <ProfileContainer>
-      <img src="https://github.com/lucasdmmc.png" alt="" />
+      <img src={profiles.avatar_url} alt="" />
       <ProfileWrapper>
         <NameProfile>
-          <strong>Lucas Carvalho</strong>
+          <strong>{profiles.name}</strong>
           <NavLink to="https://github.com/lucasdmmc">
             Github
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </NavLink>
         </NameProfile>
         <Biography>
-          <span>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </span>
+          <span>{profiles.bio}</span>
         </Biography>
         <Footer>
           <span>
             <FontAwesomeIcon icon={faGithub} />
-            lucasdmmc
+            {profiles.login}
           </span>
           <span>
             <FontAwesomeIcon icon={faBuilding} />
@@ -45,7 +47,7 @@ export function Profile() {
           </span>
           <span>
             <FontAwesomeIcon icon={faUserGroup} />
-            32 Seguidores
+            {profiles.followers} followers
           </span>
         </Footer>
       </ProfileWrapper>

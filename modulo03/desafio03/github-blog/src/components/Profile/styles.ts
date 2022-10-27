@@ -20,6 +20,7 @@ export const ProfileContainer = styled.div`
 `
 
 export const ProfileWrapper = styled.div`
+  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
