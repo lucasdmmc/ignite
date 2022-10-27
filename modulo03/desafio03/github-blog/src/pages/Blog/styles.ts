@@ -17,11 +17,16 @@ export const PublicationsContainer = styled.div`
     background: ${({ theme }) => theme['base-input']};
     color: ${({ theme }) => theme['base-label']};
     padding: 1.2rem 1.6rem;
-
+    
     border: 1px solid ${({ theme }) => theme['base-border']};
     border-radius: 6px;
-
+    
     margin-bottom: 4.8rem;
+    
+    &:focus {
+      border: 1px solid ${({ theme }) => theme.blue};
+    }
+
   }
 `
 export const Publications = styled.div`

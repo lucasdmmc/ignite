@@ -13,6 +13,7 @@ import {
   ProfileContainer,
   ProfileWrapper,
 } from './styles'
+import { NavLink } from 'react-router-dom'
 
 export function Profile() {
   return (
@@ -21,10 +22,10 @@ export function Profile() {
       <ProfileWrapper>
         <NameProfile>
           <strong>Lucas Carvalho</strong>
-          <span>
+          <NavLink to="https://github.com/lucasdmmc">
             Github
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-          </span>
+          </NavLink>
         </NameProfile>
         <Biography>
           <span>

@@ -40,15 +40,24 @@ export const NameProfile = styled.div`
     line-height: 3.1rem;
   }
 
-  span {
+  a {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.8rem;
 
+    text-decoration: none;
     text-transform: uppercase;
+
     font-size: 1.2rem;
+    font-weight: bold;
+    
     color: ${({ theme }) => theme.blue};
+    border: 2px solid transparent;
+
+    &:hover {
+      border-bottom: 2px solid ${({ theme }) => theme.blue};
+    }
   }
 `
 

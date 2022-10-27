@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Posts } from '../../components/Posts'
+import { CreatedPost } from '../../components/CreatedPost'
 import { Profile } from '../../components/Profile'
 import { BlogContainer, Publications, PublicationsContainer } from './styles'
 
@@ -16,7 +16,7 @@ export function Blog() {
         <input type="text" placeholder="Buscar conteúdo" />
       </PublicationsContainer>
 
-      <Posts />
+      <CreatedPost id={0} title={''} description={''} createdAt={''} />
     </BlogContainer>
   )
 }
