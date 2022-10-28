@@ -28,7 +28,7 @@ interface ProfileProviderContext {
   children: ReactNode
 }
 
-const endpoint = `https://api.github.com/search/issues?q=%20repo:lucasdmmc/IGNITE`
+const endpoint = `https://api.github.com/search/issues?q=%20repo:valmy-ericles/onebitfood`
 
 export const ProfileContext = createContext({} as ProfileContextProps)
 

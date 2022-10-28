@@ -9,7 +9,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useEffect } from 'react'
 export function Post() {
   const { id } = useParams()
-
+  
   useEffect(() => {
     async function loadIssue() {
       const url = `https://api.github.com/repos/lucasdmmc/IGNITE/issues/${id}`
