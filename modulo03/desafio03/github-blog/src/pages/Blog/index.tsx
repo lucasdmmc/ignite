@@ -29,8 +29,7 @@ export function Blog() {
   })
 
   async function handleSearchIssue(data: SearchIssueInput) {
-    const response = await loadIssues(data.query)
-    console.log(response)
+    await loadIssues(data.query)
   }
 
   return (

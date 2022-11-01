@@ -8,6 +8,7 @@ import { NavLink, useParams } from 'react-router-dom'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useContext, useEffect, useState } from 'react'
 import { ProfileContext } from '../../context/ProfileContext'
+import { api } from '../../lib/axios'
 
 interface PostProfile {
   login: string
@@ -16,24 +17,27 @@ interface PostProfile {
 }
 
 export function Post() {
+  const [posts, setPosts] = useState<PostProfile[]>([])
   const { issues } = useContext(ProfileContext)
   const { id } = useParams()
-  // const [posts, setPosts] = useState<CommentPost[]>([])
-  useEffect(() => {
-    async function loadIssue() {
-      const url = `https://api.github.com/repos/lucasdmmc/IGNITE/issues/${id}`
-      // const url = "https://api.github.com/search/issues?q=%20repo:lucasdmmc/IGNITE"
-      console.log(url)
-      const response = await fetch(url)
-      const data = await response.json()
 
-      // const getCommentsFromAPI = data.items.map((item: CommentPost) => {
-      //   return {
-      //     comments_url: item.comments_url
-      //   }
-      // })
+
+
+  console.log(posts)
+  useEffect(() => {
+    async function loadIssue(query?: string) {
+      // const url = `https://api.github.com/repos/lucasdmmc/IGNITE/issues/${id}`
+      // const url = "https://api.github.com/search/issues?q=%20repo:lucasdmmc/IGNITE"
+      // console.log(url)
+      // const response = await fetch(url)
+      // const data = await response.json()
+
+      const response = await api.get("search/issues?q=repo:lucasdmmc/IGNITE", {
+        params: {
+          q: query
+        }
+      })
       
-      // setPosts(getCommentsFromAPI)
     }
     loadIssue()
   },[])

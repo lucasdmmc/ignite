@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { api, apiIssues } from "../lib/axios";
+import { api } from "../lib/axios";
 
 interface Blog {
   id: number
@@ -47,14 +47,9 @@ export function ProfileProvider({ children }: ProfileProviderContext) {
     setProfiles(response.data)
   }
 
-  async function loadIssues(query?: string) {
-  const response = await apiIssues.get("search/issues?q=repo:lucasdmmc/IGNITE", {
-    params: {
-      q: query
-    }
-  })
-  console.log(response)
-  
+  async function loadIssues(query: string = "") { 
+    const response = await api.get(`search/issues?q=${query}repo:lucasdmmc/IGNITE`)
+
     const normalizeIssues = response.data.items.map(((item: Blog) => {
       return {
         id: item.number,
