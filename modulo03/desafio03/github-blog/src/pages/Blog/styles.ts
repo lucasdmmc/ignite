@@ -5,7 +5,7 @@ export const BlogContainer = styled.div`
   width: 864px;
   margin: 0 auto;
 `
-export const PublicationsContainer = styled.div`
+export const PublicationsContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;

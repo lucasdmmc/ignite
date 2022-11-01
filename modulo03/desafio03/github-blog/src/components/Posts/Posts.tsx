@@ -20,7 +20,6 @@ export function Posts() {
   //   }
   // ]
   const { issues } = useContext(ProfileContext)
-  console.log(issues)
   return (
     <PostsContainer>
       {issues.map(issue => (

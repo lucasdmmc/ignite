@@ -6,15 +6,34 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { NavLink, useParams } from 'react-router-dom'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { ProfileContext } from '../../context/ProfileContext'
+
+interface PostProfile {
+  login: string
+  name: string
+  created_at: string
+}
+
 export function Post() {
+  const { issues } = useContext(ProfileContext)
   const { id } = useParams()
-  
+  // const [posts, setPosts] = useState<CommentPost[]>([])
   useEffect(() => {
     async function loadIssue() {
       const url = `https://api.github.com/repos/lucasdmmc/IGNITE/issues/${id}`
+      // const url = "https://api.github.com/search/issues?q=%20repo:lucasdmmc/IGNITE"
+      console.log(url)
       const response = await fetch(url)
+      const data = await response.json()
+
+      // const getCommentsFromAPI = data.items.map((item: CommentPost) => {
+      //   return {
+      //     comments_url: item.comments_url
+      //   }
+      // })
       
+      // setPosts(getCommentsFromAPI)
     }
     loadIssue()
   },[])
@@ -32,7 +51,7 @@ export function Post() {
           </NavLink>
         </LinksMenu>
 
-        <strong>JavaScript data types and data structures</strong>
+        <strong>{}</strong>
 
         <Footer>
           <span>
@@ -45,7 +64,7 @@ export function Post() {
           </span>
           <span>
             <FontAwesomeIcon icon={faComment}/>
-            5 comentários
+            {} comentários
           </span>
         </Footer>
 

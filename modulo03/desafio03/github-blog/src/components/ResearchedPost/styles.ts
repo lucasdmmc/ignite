@@ -9,7 +9,7 @@ export const CreatedPostContainer = styled.div`
 export const PostPublication = styled.button`
   min-width: 416px;
   max-width: 416px;
-  max-height: 260px;
+  min-height: 100px;
   border: none;
   padding: 3.2rem;
   background: ${({ theme }) => theme['base-post']};
