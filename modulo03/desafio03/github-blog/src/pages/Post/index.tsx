@@ -9,40 +9,35 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useContext, useEffect, useState } from 'react'
 import { ProfileContext } from '../../context/ProfileContext'
 import { api } from '../../lib/axios'
+import { dateFormatter } from '../../utils/Formatter'
 
-interface PostProfile {
-  login: string
-  name: string
+ export interface InPost {
+  id: number
+  number: number
+  body: string
+  title: string
+  comments: string
   created_at: string
 }
 
 export function Post() {
-  const [posts, setPosts] = useState<PostProfile[]>([])
-  const { issues } = useContext(ProfileContext)
+  const [posts, setPosts] = useState({} as InPost)
+
+  const { profiles } = useContext(ProfileContext)
   const { id } = useParams()
 
+  async function InPost() {
+    const response = await api.get(`/repos/lucasdmmc/IGNITE/issues/${id}`)
+ 
+    setPosts(response.data)
+  }
 
-
-  console.log(posts)
   useEffect(() => {
-    async function loadIssue(query?: string) {
-      // const url = `https://api.github.com/repos/lucasdmmc/IGNITE/issues/${id}`
-      // const url = "https://api.github.com/search/issues?q=%20repo:lucasdmmc/IGNITE"
-      // console.log(url)
-      // const response = await fetch(url)
-      // const data = await response.json()
-
-      const response = await api.get("search/issues?q=repo:lucasdmmc/IGNITE", {
-        params: {
-          q: query
-        }
-      })
-      
-    }
-    loadIssue()
+    InPost()
   },[])
+
   return (
-    <PostContainer>
+      <PostContainer>
       <PostProfile>
         <LinksMenu>
           <NavLink to="/">
@@ -55,32 +50,27 @@ export function Post() {
           </NavLink>
         </LinksMenu>
 
-        <strong>{}</strong>
+        <strong>{posts.title}</strong>
 
         <Footer>
           <span>
             <FontAwesomeIcon icon={faGithub}/>
-            lucasdmmc
+            {profiles.name}
           </span>
           <span>
             <FontAwesomeIcon icon={faCalendarDay}/>
-            Há 1 dia
+            {dateFormatter.format(new Date(profiles.created_at))}
           </span>
           <span>
             <FontAwesomeIcon icon={faComment}/>
-            {} comentários
+            {posts.comments} comentários
           </span>
         </Footer>
 
       </PostProfile>
       <MainContainer>
         <div>
-          <strong>Programming languages all have built-in data structures, but 
-            these often differ from one language to another. <span> This article 
-            attempts to list the built-in data structures available in JavaScript 
-            and what properties they have. These can be used to build other data 
-            structures. Wherever possible, comparisons with other languages are 
-            drawn.
+          <strong>{posts.comments}. <span> {posts.body}
           </span>
           </strong>
           <br />
@@ -97,5 +87,6 @@ export function Post() {
         </div>
       </MainContainer>
     </PostContainer>
+      
   )
 }

@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { create } from 'domain'
 import { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { ProfileContext } from '../../context/ProfileContext'
-import { CreatedPostContainer, PostHeader, PostPublication } from './styles'
+import { dateFormatter } from '../../utils/Formatter'
+import { PostHeader, PostPublication } from './styles'
 
 interface ResearchedPostProps {
   id: number
@@ -12,14 +12,15 @@ interface ResearchedPostProps {
   created_at: string
 }
 
-export function ResearchedPost({id, title, body, created_at}: ResearchedPostProps) {
+export function ResearchedPost({ id, title, body, created_at }: ResearchedPostProps) {
+  const { profiles } = useContext(ProfileContext)
   return (
     <>
       <NavLink to={`/issue/${id}`}>
         <PostPublication key={id}>
           <PostHeader>
             <strong>{title}</strong>
-            <span>{created_at}</span>
+            <span>{dateFormatter.format(new Date(profiles.created_at))}</span>
           </PostHeader>
 
           <p>{body}</p>
