@@ -1,0 +1,77 @@
+.container {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2rem;
+
+  background: #262626;
+
+  border: 1px solid #333333;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+
+  margin-bottom: 1.2rem;
+}
+
+.checkboxAndTask {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.checkboxAndTask span {
+  color: #F2F2F2;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.checkboxChecked {
+  text-decoration: line-through;
+}
+
+.trash {
+  display: flex;
+  align-items: flex-end;
+
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.trash svg {
+  color: #808080;
+}
+
+.checkbox input {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+
+  opacity: 0;
+}
+
+.checkbox label::before {
+  content: '';
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+  text-transform: uppercase;
+  border: 2px solid #4EA8DE;;
+  border-radius: 50%;
+}
+
+.checkbox input:checked + label::before {
+  background-image: url(../../assets/done.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  
+}
+
+.checkbox input:focus + label::before {
+  outline: none;
+}

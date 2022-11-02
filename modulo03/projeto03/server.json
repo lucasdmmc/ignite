@@ -1,0 +1,36 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2022-10-23T09:54:16.654Z"
+    },
+    {
+      "id": 2,
+      "description": "Hamburguer",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 50,
+      "createdAt": "2022-10-23T09:30:16.654Z"
+    },
+    {
+      "description": "Notebook Dell",
+      "price": 3000,
+      "category": "Desenvolvimento",
+      "type": "income",
+      "createdAt": "2022-10-24T21:50:39.163Z",
+      "id": 3
+    },
+    {
+      "description": "Bolo no pote",
+      "price": 10,
+      "category": "Alimentação",
+      "type": "income",
+      "createdAt": "2022-10-24T22:06:40.316Z",
+      "id": 4
+    }
+  ]
+}

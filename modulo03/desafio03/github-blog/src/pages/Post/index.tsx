@@ -28,7 +28,6 @@ export function Post() {
 
   async function InPost() {
     const response = await api.get(`/repos/lucasdmmc/IGNITE/issues/${id}`)
- 
     setPosts(response.data)
   }
 
@@ -44,10 +43,10 @@ export function Post() {
             <FontAwesomeIcon icon={faChevronLeft} />
             Voltar
           </NavLink>
-          <NavLink to="#">
+          <a href={`https://github.com/repos/lucasdmmc/IGNITE/issues/${id}`}>
             Ver no github
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-          </NavLink>
+          </a>
         </LinksMenu>
 
         <strong>{posts.title}</strong>

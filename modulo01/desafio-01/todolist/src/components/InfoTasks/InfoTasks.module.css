@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 6.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.created, .done {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.created strong {
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+
+  color: #4EA8DE;
+}
+
+.created span, .done span {
+  padding: .2rem .8rem;
+
+  font-weight: bold;
+  color: #D9D9D9;
+  background: #333333;
+  border-radius: 999px;
+
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+
+}
+
+.done strong {
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+
+  color: #8284FA;;
+}
