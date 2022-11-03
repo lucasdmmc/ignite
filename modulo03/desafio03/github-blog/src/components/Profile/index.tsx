@@ -28,10 +28,10 @@ export function Profile() {
       <ProfileWrapper>
         <NameProfile>
           <strong>{profiles.name}</strong>
-          <NavLink to="https://github.com/lucasdmmc">
+          <a href="https://github.com/lucasdmmc" target={'_blank'}>
             Github
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-          </NavLink>
+          </a>
         </NameProfile>
         <Biography>
           <span>{profiles.bio}</span>

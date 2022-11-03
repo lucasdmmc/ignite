@@ -2,7 +2,7 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../lib/axios";
 
-export interface Blog {
+interface Blog {
   id: number
   number: number
   body: string
@@ -33,15 +33,13 @@ interface ProfileProviderContext {
   children: ReactNode
 }
 
-
-
 export const ProfileContext = createContext({} as ProfileContextProps)
 
 export function ProfileProvider({ children }: ProfileProviderContext) {
   const [profiles, setProfiles] = useState({} as Profile )
   const [issues, setIssues] = useState<Blog[]>([])
   const [totalCount, setTotalCount] = useState(0)
-
+  
   async function loadProfile() {
     const response = await api.get(`/users/lucasdmmc`)
     setProfiles(response.data)
@@ -50,7 +48,6 @@ export function ProfileProvider({ children }: ProfileProviderContext) {
   async function loadIssues(query: string = "") { 
     const response = await api.get(`search/issues?q=${query}repo:lucasdmmc/IGNITE`)
     const normalizeIssues = response.data.items.map(((item: Blog) => {
-      console.log(item)
       return {
         id: item.number,
         body: item.body,
@@ -62,14 +59,20 @@ export function ProfileProvider({ children }: ProfileProviderContext) {
     }))
     setIssues(normalizeIssues)
     setTotalCount(response.data.total_count)
-   }
+  }
 
   useEffect(() => {
     loadProfile()
     loadIssues()
   }, [])
+
   return (
-    <ProfileContext.Provider value={{ profiles, issues, totalCount, loadIssues }}>
+    <ProfileContext.Provider value={{ 
+      profiles, 
+      issues, 
+      totalCount, 
+      loadIssues 
+    }}>
 
       {children}
     </ProfileContext.Provider>

@@ -1,1 +1,5 @@
-export const dateFormatter = new Intl.DateTimeFormat("pt-BR")
+import moment from "moment"
+
+export function dateFormatter(date: string){
+  return moment(date).fromNow()
+}

@@ -15,7 +15,7 @@ export const PublicationsContainer = styled.form`
     height: 50px;
     border: none;
     background: ${({ theme }) => theme['base-input']};
-    color: ${({ theme }) => theme['base-label']};
+    color: ${({ theme }) => theme['base-span']};
     padding: 1.2rem 1.6rem;
     
     border: 1px solid ${({ theme }) => theme['base-border']};
@@ -25,6 +25,10 @@ export const PublicationsContainer = styled.form`
     
     &:focus {
       border: 1px solid ${({ theme }) => theme.blue};
+    }
+
+    &::placeholder {
+      color: ${({ theme }) => theme['base-span']};
     }
 
   }

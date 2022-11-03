@@ -25,8 +25,8 @@ export const PostPublication = styled.button`
   p {
     color: ${({ theme }) => theme['base-text']};
     margin-top: 2rem;
-
-
+    max-height: 70px;
+    min-height: 70px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

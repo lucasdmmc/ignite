@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Footer, LinksMenu, MainContainer, PostContainer, PostProfile } from './styles'
+import { Footer, LinksMenu, PostContainer, PostProfile } from './styles'
 import {
   faArrowUpRightFromSquare, faCalendarDay, faChevronLeft, faComment,
 } from '@fortawesome/free-solid-svg-icons'
@@ -10,8 +10,9 @@ import { useContext, useEffect, useState } from 'react'
 import { ProfileContext } from '../../context/ProfileContext'
 import { api } from '../../lib/axios'
 import { dateFormatter } from '../../utils/Formatter'
+import { PostContent } from './components/PostContent'
 
- export interface InPost {
+interface InPost {
   id: number
   number: number
   body: string
@@ -20,20 +21,22 @@ import { dateFormatter } from '../../utils/Formatter'
   created_at: string
 }
 
+
 export function Post() {
   const [posts, setPosts] = useState({} as InPost)
-
   const { profiles } = useContext(ProfileContext)
   const { id } = useParams()
 
-  async function InPost() {
+  const formattedDate = dateFormatter(posts.created_at)
+
+  async function inPost() {
     const response = await api.get(`/repos/lucasdmmc/IGNITE/issues/${id}`)
     setPosts(response.data)
   }
 
   useEffect(() => {
-    InPost()
-  },[])
+    inPost()
+  }, [])
 
   return (
       <PostContainer>
@@ -43,7 +46,7 @@ export function Post() {
             <FontAwesomeIcon icon={faChevronLeft} />
             Voltar
           </NavLink>
-          <a href={`https://github.com/repos/lucasdmmc/IGNITE/issues/${id}`}>
+          <a href={`https://github.com/lucasdmmc/IGNITE/issues/${id}`} target={'_blank'}>
             Ver no github
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
@@ -58,7 +61,7 @@ export function Post() {
           </span>
           <span>
             <FontAwesomeIcon icon={faCalendarDay}/>
-            {dateFormatter.format(new Date(profiles.created_at))}
+            {formattedDate}
           </span>
           <span>
             <FontAwesomeIcon icon={faComment}/>
@@ -67,24 +70,7 @@ export function Post() {
         </Footer>
 
       </PostProfile>
-      <MainContainer>
-        <div>
-          <strong>{posts.comments}. <span> {posts.body}
-          </span>
-          </strong>
-          <br />
-          <br />
-          <br />
-          <NavLink to="#">
-            Dynamic typing
-          </NavLink>
-          <p>
-            JavaScript is a loosely typed and dynamic language. Variables in 
-            JavaScript are not directly associated with any particular value type,
-            and any variable can be assigned (and re-assigned) values of all types:
-          </p>
-        </div>
-      </MainContainer>
+      <PostContent content={posts.body}/>
     </PostContainer>
       
   )

@@ -26,4 +26,15 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Nunito", sans-serif;
   }
 
+  ::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme['base-post']};
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background: ${({ theme }) => theme.blue};
+  }
+
 `

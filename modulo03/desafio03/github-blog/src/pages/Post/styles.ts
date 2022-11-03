@@ -63,26 +63,3 @@ export const Footer = styled.footer`
     gap: 0.8rem;
   }
 `
-
-export const MainContainer = styled.main`
-  padding: 4rem 3.2rem;
-  
-  strong {
-    color: ${({ theme }) => theme['base-title']};
-  }
-
-  span {
-    font-weight: 400;
-    color: ${({ theme }) => theme['base-text']};
-  }
-
-  a {
-    text-decoration: none;
-    color: ${({ theme }) => theme.blue};
-    text-decoration: underline;
-  }
-
-  p {
-    color: ${({ theme }) => theme['base-text']};
-  }
-`
