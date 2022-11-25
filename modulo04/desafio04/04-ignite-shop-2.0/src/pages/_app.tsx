@@ -1,20 +1,19 @@
+import { Header } from "../components/Header"
+import { CartContextProvider } from "../contexts/CartContext"
 import { globalStyles } from "../styles/global"
-import { Container, Header } from "../styles/pages/app"
-
-import logoImg from "../assets/logo.svg"
-import Image from "next/image"
+import { Container } from "../styles/pages/app"
 
 globalStyles()
 
 function MyApp({ Component, pageProps }) { 
   return (
-    <Container>
-      <Header>
-        <Image src={logoImg} alt="" />
-      </Header>
-
+    <CartContextProvider>
+      <Container>
+        <Header />
       <Component {...pageProps} />
-    </Container>
+      </Container>
+    </CartContextProvider>
+
   )
 }
 
